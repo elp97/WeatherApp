@@ -1,0 +1,23 @@
+.div {
+    padding: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+.locationBar {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    h3 {
+        display: inline-block;
+    }
+    .homeIcon {
+        margin-right: 50px;
+        border: 2px dashed hotpink;
+    }
+    .homeLocationSet {
+        color: purple;
+    }
+    .homeLocation {
+        color: yellow;
+    } 
+}

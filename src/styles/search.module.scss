@@ -1,0 +1,21 @@
+.searchBox {
+    display: inline-block;
+    border: 2px solid rgb(0, 132, 255);
+    border-radius: 25px;
+    background-color: #8cbfeb;
+    input, input:hover, input:focus-visible {
+        height: 40px;
+        border: none;
+        min-width: 1000px;
+        padding: 0px 5px;
+        outline: none;
+        background: transparent;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 400;
+        color: black;
+    }
+    .searchIcon {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+}

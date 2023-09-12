@@ -1,0 +1,18 @@
+.locationList {
+    // list-style-type: none;
+    min-width: 1000px;
+    width: max-content;
+    margin: auto;
+    border-radius: 25px;
+    .locationItem {
+        padding: 10px;
+        border-radius: 25px;
+        background-color: aliceblue;
+        margin: 5px;
+    }
+    .locationItem:hover {
+         cursor: pointer;
+         background-color: aquamarine;
+         border-radius: 25px;
+    }
+}
