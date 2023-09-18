@@ -9,6 +9,8 @@
     text-align: center;
     h3 {
         display: inline-block;
+        margin: 0px;
+        padding-block-start: 10px;
     }
     .homeIcon {
         margin-right: 50px;
@@ -20,4 +22,19 @@
     .homeLocation {
         color: yellow;
     } 
+}
+.viewBtn {
+    font-size: 30px;
+    background-color: #5538c9;
+    color: white;
+    border: 2px white solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.searchAgain {
+    font-style: italic;
+    cursor: pointer;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
 }

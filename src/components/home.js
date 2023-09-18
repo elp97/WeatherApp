@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styles from '../styles/home.module.scss';
 import HomeIcon from '@mui/icons-material/Home';
 import Search from './search';
-import Map from './map';
 import LocationList from '../api/locationList';
+import ForecastPane from './forecast-pane';
+import DetailedView from './detailed-view';
 
 function Home() {
     const [homeLocation, setHomeLocation] = useState(null);
@@ -15,7 +16,7 @@ function Home() {
         }
     }
 
-    const [location, setLocation] = useState("");
+    const [location, setLocation] = useState({});
     const handleLocation = (event) => {
         const chosenLocation = event.target.value;
         setLocation(chosenLocation);
@@ -24,7 +25,7 @@ function Home() {
     }
 
     const [showSearch, setShowSearch] = useState(true);
-    
+
 
     function homeIconClassName() {
         if (homeLocation === location) {
@@ -32,12 +33,14 @@ function Home() {
         }
         return styles.HomeIcon, styles.homeLocation;
     }
-    const [chosenLocation, setChosenLocation] = useState("");
+    const [chosenLocation, setChosenLocation] = useState({ Label: "", ID: -1 });
     function handleClick(event, data) {
-        console.log("HANDLE CLICK", event, data)
         setLocation(data.value);
         setShowSearch(false);
-        setChosenLocation(data.value);
+        setChosenLocation({
+            Label: data.label,
+            ID: data.id
+        });
     }
 
     const search = (
@@ -47,6 +50,14 @@ function Home() {
         </div>
     );
 
+    const [moreDetails, setMoreDetails] = useState(false);
+    function handleMoreDetails(event) {
+        console.log("handleMoreDetails", event)
+        setMoreDetails(!moreDetails);
+    }
+
+
+
 
 
     return (
@@ -54,18 +65,25 @@ function Home() {
             <div className={styles.div}>
                 <h1>Home</h1>
                 {homeLocation !== null && <p>Welcome back</p>}
-                { (homeLocation === null && showSearch) && search}
+                {(homeLocation === null && showSearch) && search}
+            </div>
+            <div>
+                {(homeLocation !== null || chosenLocation.ID > -1) && !moreDetails && <button onClick={handleMoreDetails} className={styles.viewBtn}>Show Overview</button>}
+                {(homeLocation !== null || chosenLocation.ID > -1) && moreDetails && <button onClick={handleMoreDetails} className={styles.viewBtn}>Show Detailed</button>}
             </div>
             {
-                (homeLocation !== null || chosenLocation !== "") &&
+                (homeLocation !== null || chosenLocation.ID > -1) &&
                 <div className={styles.locationBar}>
-                    <h3>{chosenLocation}</h3>
-                    <HomeIcon className={homeIconClassName()} tooltip="Set as Home location" onClick={handleHomeLocation} />
+                    <h3>{chosenLocation.Label}</h3>
+                    {/* <HomeIcon className={homeIconClassName()} tooltip="Set as Home location" onClick={handleHomeLocation} /> */}
                 </div>
             }
 
-            {!showSearch && <div onClick={(e) => {setShowSearch(true); setChosenLocation(""); setLocation("");}}>Search Again</div>}
-            {/* <Map /> */}
+
+
+            {!showSearch && <div onClick={(e) => { setShowSearch(true); setChosenLocation(""); setLocation({ Label: "", ID: -1}); setMoreDetails(false)}} className={styles.searchAgain}>Search Again</div>}
+            {(homeLocation !== null || chosenLocation.ID > -1) && !moreDetails && <ForecastPane locationID={chosenLocation.ID} />}
+            {moreDetails && <DetailedView locationID={chosenLocation.ID} />}
         </div>
     );
 }

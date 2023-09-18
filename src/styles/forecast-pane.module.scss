@@ -1,0 +1,10 @@
+.groupPane {
+    display: inline-flex;
+    width: 85%;
+    max-height: 60vh;
+    height: max-content;
+    .singlePane {
+        border: 2px solid blue;
+        width: 20%;
+    }
+}

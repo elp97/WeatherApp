@@ -1,0 +1,29 @@
+@import 'style';
+
+.timeData {
+    width: 100%;
+    display: inline-flex;
+    font-weight: 500;
+    font-size: 20px;
+    .singleTimeData {
+        width: 100%;
+        border: 2px solid blue;
+        .temperature div, .feelsLike div, .precipitation div, .windSpeed div, .humidity div {
+            display: inline-flex;
+        }
+        .windDirection {
+            padding-inline-start: 5px;
+        }
+    }
+    .arrowBtn {
+        background-color: transparent;
+        border: none;
+    }
+    .arrowBtn:not(:disabled) {
+        cursor: pointer;
+    }
+    .arrowBtn:disabled {
+        cursor: not-allowed;
+    }
+    
+}

@@ -3,6 +3,7 @@
     border: 2px solid rgb(0, 132, 255);
     border-radius: 25px;
     background-color: #8cbfeb;
+    padding: 10px;
     input, input:hover, input:focus-visible {
         height: 40px;
         border: none;
@@ -12,10 +13,11 @@
         background: transparent;
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         font-weight: 400;
+        font-size: 25px;
         color: black;
     }
     .searchIcon {
-        vertical-align: middle;
+        vertical-align: text-bottom;
         margin-right: 10px;
     }
 }

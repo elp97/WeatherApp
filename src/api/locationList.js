@@ -28,7 +28,6 @@ function LocationList({ searchedLocation, handleClick }) {
             label: itemLabel
           }
         }).sort((a, b) => a.label.localeCompare(b.label));
-        console.log("sorted", sortedLocationList, "searchedLocation", searchedLocation);
         setLocationList(sortedLocationList);
         setFilteredLocationList(sortedLocationList);
       })
@@ -48,7 +47,6 @@ function LocationList({ searchedLocation, handleClick }) {
           return locationItem;
         }
       })
-      console.log("filtered", filteredLocation)
       setFilteredLocationList(filteredLocation);
     }
   }, [searchedLocation]);
