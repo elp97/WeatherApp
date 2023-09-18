@@ -22,7 +22,10 @@ async function ForecastDataHourly(locationID) {
                         const time =  new Date(dateTime)?.toLocaleTimeString();  
                         return {"Time": time, ...timeData};      
                     });
-                    periodData[dateFormatted?.toDateString()] =  [...hourlyData];
+                    const sortedHourlyData = hourlyData.sort((a,b) => {
+                        return new Date(`01/01/2000 ${a.Time}`)?.getTime() - new Date(`01/01/2000 ${b.Time}`)?.getTime()
+                    });
+                    periodData[dateFormatted?.toDateString()] =  [...sortedHourlyData];
                 });
 
            
