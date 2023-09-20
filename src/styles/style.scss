@@ -1,5 +1,9 @@
-.toolTip {
-  font-size: 13px;
-  background-color: #a777e6;
-  color: black;
+.MuiTooltip-tooltip {
+  background-color: #a777e6 !important;
+  font-size: 15px !important;
+  color: black !important;
+  font-weight: 600 !important;
+  .MuiTooltip-arrow {
+    color: #a777e6 !important;
+  }
 }

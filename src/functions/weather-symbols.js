@@ -1,53 +1,60 @@
 import Icon from '@mdi/react';
-import { mdiWeatherSnowy, mdiWeatherSnowyHeavy, mdiWeatherLightning, mdiWeatherHail, mdiWeatherSnowyRainy, mdiWeatherRainy, mdiWeatherCloudy, mdiWeatherNight, mdiWeatherSunny,
-    mdiWeatherNightPartlyCloudy, mdiWeatherPartlyCloudy, mdiWeatherPouring, mdiWeatherFog, mdiMinus } from '@mdi/js';
-import { Tooltip } from 'react-tooltip';
-import '../styles/style.scss';
+import {
+    mdiWeatherSnowy, mdiWeatherSnowyHeavy, mdiWeatherLightning, mdiWeatherHail, mdiWeatherSnowyRainy, mdiWeatherRainy, mdiWeatherCloudy, mdiWeatherNight, mdiWeatherSunny,
+    mdiWeatherNightPartlyCloudy, mdiWeatherPartlyCloudy, mdiWeatherPouring, mdiWeatherFog, mdiMinus
+} from '@mdi/js';
+import ToolTip from './tooltip.js';
 
 function WeatherSymbol(code, size = 4) {
     switch (Number(code)) {
         case 0:
             return (
                 <>
-                 <div id="clearNightIcon"><Icon path={mdiWeatherNight} size={size}/></div>
-                 <Tooltip anchorSelect="#clearNightIcon" place="top" className="toolTip">Clear Night</Tooltip>
+                    <ToolTip text="Clear Night" place="top">
+                        <div id="clearNightIcon"><Icon path={mdiWeatherNight} size={size} /></div>
+                    </ToolTip>
                 </>
-            );      
+            );
         case 1:
             return (
                 <>
-                 <div id="sunnyIcon"><Icon path={mdiWeatherSunny} size={size}/></div>
-                 <Tooltip anchorSelect="#sunnyIcon" place="top" className="toolTip">Sunny</Tooltip>
+                    <ToolTip text="Sunny" place="top">
+                        <div id="sunnyIcon"><Icon path={mdiWeatherSunny} size={size} /></div>
+                    </ToolTip>
                 </>
-            );  
+            );
         case 2:
             return (
                 <>
-                 <div id="partylyCloudyNightIcon"><Icon path={mdiWeatherNightPartlyCloudy} size={size}/></div>
-                 <Tooltip anchorSelect="#partylyCloudyNightIcon" place="top" className="toolTip">Partly Cloudy Night</Tooltip>
+                    <ToolTip text="Partly Cloudy Night" place="top">
+                        <div id="partylyCloudyNightIcon"><Icon path={mdiWeatherNightPartlyCloudy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 3:
             return (
                 <>
-                 <div id="partlyCloudyDayIcon"><Icon path={mdiWeatherPartlyCloudy} size={size}/></div>
-                 <Tooltip anchorSelect="#partlyCloudyDayIcon" place="top" className="toolTip">Partly Cloudy Day</Tooltip>
+                    <ToolTip text="Partly Cloudy Day" place="top">
+                        <div id="partlyCloudyDayIcon"><Icon path={mdiWeatherPartlyCloudy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 5:
         case 6:
             return (
                 <>
-                 <div id="fogIcon"><Icon path={mdiWeatherFog} size={size}/></div>
-                 <Tooltip anchorSelect="#fogIcon" place="top" className="toolTip">Fog</Tooltip>
+                    <ToolTip text="Fog" place="top">
+                        <div id="fogIcon"><Icon path={mdiWeatherFog} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 7:
         case 8:
             return (
                 <>
-                 <div id="cloudyIcon"><Icon path={mdiWeatherCloudy} size={size}/></div>
-                 <Tooltip anchorSelect="#cloudyIcon" place="top" className="toolTip">Cloudy</Tooltip>
+                    <ToolTip text="Cloudy" place="top">
+                        <div id="cloudyIcon"><Icon path={mdiWeatherCloudy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 9:
@@ -56,26 +63,29 @@ function WeatherSymbol(code, size = 4) {
         case 12:
             return (
                 <>
-                 <div id="rainingIcon"><Icon path={mdiWeatherRainy} size={size}/></div>
-                 <Tooltip anchorSelect="#rainingIcon" place="top" className="toolTip">Raining</Tooltip>
+                    <ToolTip text="Raining" place="top">
+                        <div id="rainingIcon"><Icon path={mdiWeatherRainy} size={size} /></div>
+                    </ToolTip>
                 </>
-            );   
+            );
         case 13:
         case 14:
         case 15:
             return (
                 <>
-                 <div id="heavyRainIcon" ><Icon path={mdiWeatherPouring} size={size}/></div>
-                 <Tooltip anchorSelect="#heavyRainIcon" place="top" className="toolTip">Heavy Rain</Tooltip>
+                    <ToolTip text="Heavy Rain" place="top">
+                        <div id="heavyRainIcon" ><Icon path={mdiWeatherPouring} size={size} /></div>
+                    </ToolTip>
                 </>
-            ); 
+            );
         case 16:
         case 17:
         case 18:
             return (
                 <>
-                 <div id="sleetIcon"><Icon path={mdiWeatherSnowyRainy} size={size}/></div>
-                 <Tooltip anchorSelect="#sleetIcon" place="top" className="toolTip">Sleet</Tooltip>
+                    <ToolTip text="Sleet" place="top">
+                        <div id="sleetIcon"><Icon path={mdiWeatherSnowyRainy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 19:
@@ -83,8 +93,9 @@ function WeatherSymbol(code, size = 4) {
         case 21:
             return (
                 <>
-                 <div id="hailIcon"><Icon path={mdiWeatherHail} size={size}/></div>
-                 <Tooltip anchorSelect="#hailIcon" place="top" className="toolTip">Hail</Tooltip>
+                    <ToolTip text="v" place="top">
+                        <div id="hailIcon"><Icon path={mdiWeatherHail} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 22:
@@ -92,8 +103,9 @@ function WeatherSymbol(code, size = 4) {
         case 24:
             return (
                 <>
-                 <div id="snowingIcon"><Icon path={mdiWeatherSnowy} size={size}/></div>
-                 <Tooltip anchorSelect="#snowingIcon" place="top" className="toolTip">Snowing</Tooltip>
+                    <ToolTip text="Snowing" place="top">
+                        <div id="snowingIcon"><Icon path={mdiWeatherSnowy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 25:
@@ -101,8 +113,9 @@ function WeatherSymbol(code, size = 4) {
         case 27:
             return (
                 <>
-                 <div id="heavySnowIcon"><Icon path={mdiWeatherSnowyHeavy} size={size}/></div>
-                 <Tooltip anchorSelect="#heavySnowIcon" place="top" className="toolTip">Heavy Snow</Tooltip>
+                    <ToolTip text="Heavy Snow" place="top">
+                        <div id="heavySnowIcon"><Icon path={mdiWeatherSnowyHeavy} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         case 28:
@@ -110,15 +123,17 @@ function WeatherSymbol(code, size = 4) {
         case 30:
             return (
                 <>
-                 <div id="thunderstormIcon"><Icon path={mdiWeatherLightning} size={size}/></div>
-                 <Tooltip anchorSelect="#thunderstormIcon" place="top" className="toolTip">Thunderstorm</Tooltip>
+                    <ToolTip text="v" place="top">
+                        <div id="thunderstormIcon"><Icon path={mdiWeatherLightning} size={size} /></div>
+                    </ToolTip>
                 </>
             );
         default:
             return (
                 <>
-                 <div id="noDataIcon"><Icon path={mdiMinus} size={size}/></div>
-                 <Tooltip anchorSelect="#noDataIcon" place="top" className="toolTip">No Data</Tooltip>
+                    <ToolTip text="No Data" place="top">
+                        <div id="noDataIcon"><Icon path={mdiMinus} size={size} /></div>
+                    </ToolTip>
                 </>
             );
     }

@@ -52,13 +52,8 @@ function Home() {
 
     const [moreDetails, setMoreDetails] = useState(false);
     function handleMoreDetails(event) {
-        console.log("handleMoreDetails", event)
         setMoreDetails(!moreDetails);
     }
-
-
-
-
 
     return (
         <div>

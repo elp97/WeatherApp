@@ -4,8 +4,8 @@ import styles from '../styles/detailed-view.module.scss';
 import WeatherSymbol from '../functions/weather-symbols.js';
 import Icon from '@mdi/react';
 import { mdiTemperatureCelsius, mdiWaterOutline, mdiWindPower, mdiWaterPercent, mdiArrowRightBoldCircle, mdiArrowLeftBoldCircle } from '@mdi/js';
-import { Tooltip } from 'react-tooltip';
-import '../styles/style.scss';
+import ToolTip from '../functions/tooltip.js';
+import LightningMap from '../api/lightning-map.js';
 
 function DetailedView({ locationID }) {
     const [dayData, setDayData] = useState([]);
@@ -17,6 +17,7 @@ function DetailedView({ locationID }) {
             const forecastData = await ForecastDataHourly(locationID);
             setDayData(Object.keys(forecastData));
             setWeatherData(Object.values(forecastData)[chosenDay]);
+            await LightningMap();
         }
         if (locationID > -1) {
             getHourlyData();
@@ -61,22 +62,25 @@ function DetailedView({ locationID }) {
                                             <div>Feels Like: {item.F}</div>
                                             <Icon path={mdiTemperatureCelsius} size={1} />
                                         </div>
-                                        <div className={styles.precipitation} id="precipitation">
+                                        <ToolTip text="Precipitation" place="top">
+                                        <div className={styles.precipitation}>
                                             <Icon path={mdiWaterOutline} size={1} />
                                             <div>{item.Pp}%</div>
                                         </div>
-                                        <Tooltip anchorSelect="#precipitation" place="bottom" className="toolTip">Precipitation</Tooltip>
-                                        <div className={styles.windSpeed} id="windSpeed">
+                                        </ToolTip>
+                                        <ToolTip text="Wind Speed and Direction" place="top">
+                                        <div className={styles.windSpeed}>
                                             <Icon path={mdiWindPower} size={1} />
                                             <div>{item.S} mph</div>
                                             <div className={styles.windDirection}>{item.D}</div>
                                         </div>
-                                        <Tooltip anchorSelect="#windSpeed" place="bottom" className="toolTip">Wind Speed and Direction</Tooltip>
-                                        <div className={styles.humidity} id="humidity">
-                                            <Icon path={mdiWaterPercent} size={1} />
-                                            <div>{item.H}%</div>
-                                        </div>
-                                        <Tooltip anchorSelect="#humidity" place="bottom" className="toolTip">Humidity</Tooltip>
+                                        </ToolTip>
+                                        <ToolTip text="Humidity" place="top">
+                                            <div className={styles.humidity}>
+                                                <Icon path={mdiWaterPercent} size={1} />
+                                                <div>{item.H}%</div>
+                                            </div>
+                                        </ToolTip>
                                     </div>
                                 );
                             })}
